@@ -9,10 +9,10 @@
             </span>
         </div>
         <span class="uk-navbar-item uk-logo uk-visible@m uk-inline"
-                style="font-family: 'Poppins', sans-serif; color:white; font-size:25px; margin-bottom:-50px;"><img
-                    class="uk-preserve-width uk-border-circle uk-visible@m uk-inline" src="../assets/cover/logo.png"
-                    width="40" alt="">
-                Inventaris SMK
+            style="font-family: 'Poppins', sans-serif; color:white; font-size:25px; margin-bottom:-50px;"><img
+                class="uk-preserve-width uk-border-circle uk-visible@m uk-inline" src="../assets/cover/logo.png"
+                width="40" alt="">
+            Inventaris SMK
         </span>
 
         <hr>
@@ -25,14 +25,24 @@
                     uk-icon="icon: sign-out;"></span> Sign Out</a></div>
 
         <br><br>
-        <a href="dashboard.php" style="text-decoration: none;">
-            <h5> <b><span uk-icon="home"> </span> Dashboard</b> </h5>
+        <a href="index.php?page=dashboard" style="text-decoration: none;">
+            <h5 class="<?= $peminjaman, $pengembalian == NULL ? 'uk-active' : '' ?>"
+                style="<?= $peminjaman, $pengembalian == NULL ? 'color:grey;' : '' ?>"> <span
+                    uk-icon="home"> </span> Dashboard </h5>
         </a>
-        <a href="data-peminjaman.php" style="text-decoration: none;">
-            <h5><span uk-icon="file-edit"> </span> Data Peminjaman</h5>
+
+        <a href="index.php?page=dashboard&peminjaman=data-peminjaman" style="text-decoration: none;">
+            <h5 class="<?= $peminjaman == 'data-peminjaman' ? 'uk-active' : '' ?>"
+                style=" <?= $peminjaman == 'data-peminjaman' ? 'color:grey;' : '' ?>"><span
+                    uk-icon="file-edit">
+                </span> Data Peminjaman</h5>
         </a>
-        <a href="data-pengembalian.php" style="text-decoration: none;">
-            <h5><span uk-icon="reply"> </span> Data Pengembalian</h5>
+
+        <a href="index.php?page=dashboard&pengembalian=data-pengembalian" style="text-decoration: none;">
+            <h5 class="<?= $pengembalian == 'data-pengembalian' ? 'uk-active' : '' ?>"
+                style=" <?= $pengembalian == 'data-pengembalian' ? 'color:grey;' : '' ?>"><span
+                    uk-icon="reply">
+                </span> Data Pengembalian</h5>
         </a>
     </div>
 </div>

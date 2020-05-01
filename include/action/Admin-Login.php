@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require '../connection.php';
+    require '../Connection.php';
     require '../class/Adminclass.php';
     
     $classAdmin = new AdminClass($pdo);
@@ -10,10 +10,15 @@
 
     $loginAdmin = $classAdmin->loginbyAdmin($usernameAdmin, $passwordAdmin);
     if ($loginAdmin) {
-        header("Location:../../admin/dashboard.php");
+        header("Location:../../admin/index.php?page=dashboard");
+        $_SESSION['loginadmin'] = $loginAdmin;
     }
     else {
-        // header("Location:../../admin/index.php");
-        echo $loginAdmin;
+        echo "
+        <script>
+            alert('Data Gagal');
+            document.location.href = '../../admin/index.php';
+        </script>
+    ";
     }
 ?>

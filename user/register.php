@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/uikit.min.css" />
-    <script src="../js/uikit.min.js"></script>
-    <script src="../js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/uikit.min.css" />
+    <script src="../assets/js/uikit.min.js"></script>
+    <script src="../assets/js/uikit-icons.min.js"></script>
     <link rel="icon" href="../assets/cover/logo.png">
     <title>Inventaris - Register</title>
     <style>

@@ -14,8 +14,8 @@
         //kalo password yang pertama ga sama dengan password yang kedua bakal ke sini
         echo "
         <script>
-            alert('Password Is Different');
-            document.location.href = '../../user/register.php';
+            alert('Password Berbeda');
+            document.location.href = '../../user/index.php?page=register';
         </script>
     ";
     }else{
@@ -24,20 +24,25 @@
         if ($register == 'Success') {
             //kalo berhasil masuk ke database bakal ke sini
             $_SESSION['newuser'] = $register;
-            header("Location:../../user/index.php");
+            header('Location:../../user/index.php');
         }
         elseif ($register == 'Exist') {
-            //kalo nomor telpon sama bakal ke sini
+            //kalo username sama bakal ke sini
             echo "
             <script>
-                alert('Username Are Exist');
-                document.location.href = '../../user/register.php';
+                alert('Username Sudah Ada);
+                document.location.href = '../../user/index.php?page=register';
             </script>
         ";
         }
         else {
             //kalo data gagal masuk bakal ke sini
-            echo $register;
+            echo "
+            <script>
+                alert('Data Gagal Masuk');
+                document.location.href = '../../user/index.php?page=register';
+            </script>
+        ";
         }
     }
 

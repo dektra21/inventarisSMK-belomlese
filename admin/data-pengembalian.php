@@ -1,49 +1,29 @@
-<?php
-require 'tampilan-data.php';
-?>
+<style>
+    .padding {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
 
-<!DOCTYPE html>
-<html lang="en">
+    h2,
+    h3,
+    h5,
+    a {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+<h2 style="margin-left: 50px; margin-top: -10px; text-decoration: underline;">Data Pengembalian</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/uikit.min.css" />
-    <script src="../js/uikit.min.js"></script>
-    <script src="../js/uikit-icons.min.js"></script>
-    <link rel="icon" href="logo.png">
-    <title>Inventaris - Data Pengembalian</title>
-    <style>
-        .padding {
-            margin-left: 100px;
-            margin-right: 100px;
-        }
-
-        h2,
-        h3,
-        h5,
-        a {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-</head>
-
-<body class="uk-animation-fade">
-    <?php
-        require 'dashboard-navbar.php';
-    ?>
-    <h2 style="margin-left: 50px; margin-top: -10px; text-decoration: underline;">Data Pengembalian</h2>
-
-    <div class="" style="display:flex;  justify-content: space-between; margin-top:50px;">
-        <div class=""></div>
-        <div class="uk-card uk-card-hover uk-padding"><table class="uk-table uk-table-justify uk-table-divider">
+<div class="" style="display:flex;  justify-content: space-between; margin-top:50px;">
+    <div class=""></div>
+    <div class="uk-card uk-card-hover uk-padding">
+        <table class="uk-table uk-table-justify uk-table-divider">
             <thead>
                 <tr align="center">
                     <th align="center" class="uk-width-small" style="padding-right:150px;">No</th>
                     <th align="center" class="uk-width-small" style="padding-right:150px;">Nama Peminjam</th>
                     <th align="center" class="uk-width-small" style="padding-right:150px;">Barang Yang Dikembalikan</th>
                     <th align="center" class="uk-width-small" style="padding-right:150px;">Jumlah</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
@@ -54,16 +34,8 @@ require 'tampilan-data.php';
                     <td>36</td>
                 </tr>
             </tbody>
-        </table></div>
-        
-        <div class=""></div>
+        </table>
     </div>
 
-
-    <?php
-        require 'off-canvas.php';
-    ?>
-
-</body>
-
-</html>
+    <div class=""></div>
+</div>

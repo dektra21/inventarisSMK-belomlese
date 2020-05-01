@@ -1,5 +1,4 @@
 <?php
-require '../include/Connection.php';
 if (empty($_SESSION['id'])){
     header("Location:index.php");
     exit;
@@ -27,9 +26,9 @@ $barangBaru = $BarangClass->barangBaru();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/uikit.min.css" />
-    <script src="../js/uikit.min.js"></script>
-    <script src="../js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/uikit.min.css" />
+    <script src="../assets/js/uikit.min.js"></script>
+    <script src="../assets/js/uikit-icons.min.js"></script>
     <link rel="icon" href="../assets/cover/logo.png">
     <link
         href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bangers|Bitter|Bowlby+One+SC|Indie+Flower|Poppins&display=swap"
@@ -68,14 +67,21 @@ $barangBaru = $BarangClass->barangBaru();
         .uk-open::before {
             opacity: 2;
         }
+
+        .info:hover {
+            border-radius: 100px;
+            padding: 9px;
+            background-color: #1E90FF;
+            transition: 0.5s;
+        }
     </style>
 </head>
 
 <body class="uk-animation-fade">
-
+<div id="flashdata" data-flashdata="<?= isset($_SESSION['loginuser']) ?  $_SESSION['loginuser'] : NULL?>"></div>
     <nav class="uk-navbar-container" uk-navbar style="background:#39f;" style=" z-index: 980;"
         uk-sticky="top: 100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
-        <div class="uk-navbar-left uk-margin-left">
+        <div class="uk-navbar-left uk-margin-left" style=" margin-bottom:-8px; margin-top:-8px;">
 
             <b> <a href="" class="uk-visible@m uk-hidden@s" uk-toggle="target: #offcanvas-reveal"
                     uk-icon="icon: menu; ratio: 1.5;" style="margin-left:10px; color:white;"> </a></b>
@@ -88,13 +94,15 @@ $barangBaru = $BarangClass->barangBaru();
 
         </div>
         <div class="uk-navbar-right uk-visible@m" style="margin-right: 50px;">
-            <div class="uk-inline">
-                <a href="" style="text-decoration: none; color: black; "> <img class="uk-preserve-width uk-border-circle"
-                        style="margin-right: 10px; border:2px solid black;" src="../assets/cover/dektra.jpg" width="50" alt="">
+            <div class="uk-inline info" style="padding:10px;">
+                <a href="" style="text-decoration: none; color: black; "> <img
+                        class="uk-preserve-width uk-border-circle" style="margin-right: 10px; border:1px solid black;"
+                        src="../assets/cover/dektra.jpg" width="50" alt="">
 
                     <span style="font-family:'Poppins', sans-serif; color:white;">
                         <b><?= $firstname . ' ' . $lastname ?></b> </span></a>
             </div>
+
             <div uk-dropdown="pos: bottom-justify" style="border-radius:10px;" class="">
                 <a href="logout.php" style="text-decoration:none; color: black;">
                     <span uk-icon="icon: sign-out;"></span>
@@ -180,8 +188,8 @@ $barangBaru = $BarangClass->barangBaru();
 
             <div class="uk-inline">
                 <span style="text-decoration: none; color: black;"> <img class="uk-preserve-width uk-border-circle"
-                        style="margin-left: 80px; border:2px solid black;" src="../assets/cover/dektra.jpg" width="60px;"
-                        style="max-width:60px;" alt="">
+                        style="margin-left: 80px; border:2px solid black;" src="../assets/cover/dektra.jpg"
+                        width="60px;" style="max-width:60px;" alt="">
                     <br>
                     <span style="font-family:'Poppins', sans-serif; color:black;" class="uk-text-center">
                         <b><?= $firstname . ' ' . $lastname ?></b> </span></span>
@@ -191,7 +199,7 @@ $barangBaru = $BarangClass->barangBaru();
             <b>
                 <a href="logout.php" style="text-decoration:none; color: black;">
                     <span uk-icon="icon: sign-out;"></span>
-                   Barang Yang Dipinjam
+                    Barang Yang Dipinjam
                 </a>
             </b>
             <br><br>
@@ -205,23 +213,31 @@ $barangBaru = $BarangClass->barangBaru();
 
         </div>
     </div>
-
-
-
-    <script src="assets/dist/sweetalert2.all.js"></script>
+    <script src="../assets/dist/sweetalert2.all.js"></script>
     <script>
-        const flashdata = document.querySelector('#flashdata1').dataset.flashdata;
-        if (flashdata == 'Success') {
-            Swal.fire(
-                'Success Create Account!',
-                'Succes Sign In',
-                'success'
-            )
-        }
-    </script>
-    <?php
+    const flashdata = document.querySelector('#flashdata').dataset.flashdata;
+    if (flashdata) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Login Berhasil, Hai <?= $firstname . ' ' . $lastname ?>'
+        })
+    }
+</script>
+<?php
         unset($_SESSION['loginuser']);
-    ?>
+?>
 </body>
 
 </html>

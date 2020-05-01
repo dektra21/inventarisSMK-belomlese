@@ -3,10 +3,7 @@ require '../include/Connection.php';
 
 $page = isset($_GET['page']) ? $_GET['page'] : NULL;
 
-if ($page == 'register') {
-    require 'register.php';
-}
-elseif ($page == 'dashboard') {  
+if ($page == 'dashboard') {  
     require 'dashboard.php';
 }
 else {

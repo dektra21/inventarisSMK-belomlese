@@ -9,7 +9,7 @@
 
     $login = $classUsers->login($username, $password);
     if ($login) {
-        header("Location:../../user/dashboard.php");
+        header("Location:../../user/index.php?page=dashboard");
         $_SESSION['loginuser'] = $login;
     }
     else {

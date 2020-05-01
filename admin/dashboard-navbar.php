@@ -1,3 +1,18 @@
+<style>
+    .tambah:hover {
+        border-radius: 100px;
+        margin: 10px;
+        background-color: lightgrey;
+        transition: 1s;
+    }
+
+    .info:hover {
+        border-radius: 100px;
+        padding: 10px;
+        background-color: lightgrey;
+        transition: 1s;
+    }
+</style>
 <nav class="uk-navbar-container" style="margin-bottom:30px;" uk-navbar>
     <div class="uk-navbar-left">
         <a href="" class="uk-visible@m" style="color: black;" uk-toggle="target: #offcanvas-slide"><span
@@ -24,7 +39,6 @@
                 style="text-decoration:none; color: black;"><span uk-icon="icon: sign-out;"></span> Sign Out</a></div>
     </div>
 </nav>
-
 
 <div id="modal-sections" uk-modal>
     <div class="uk-modal-dialog">

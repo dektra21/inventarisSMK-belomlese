@@ -11,7 +11,7 @@
 
 	$tambahBarang = $classBarang->tambahBarang($nama,$jenis,$foto);
 	if ($tambahBarang == 'berhasil'){
-		header("Location: ../../admin/dashboard.php");
+		header("Location: ../../admin/index.php?page=dashboard");
 	}
 	else{
 		echo "Maaf ada Error";
